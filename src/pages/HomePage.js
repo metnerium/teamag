@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import getImagePath from '../utils/imageHelper';
 
 // Иконки
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
@@ -306,7 +307,7 @@ const HomePage = () => {
                   <motion.div variants={fadeInUp}>
                     <CategoryCard component={Link} to={category.path} sx={{ textDecoration: 'none' }}>
                       <StyledCardMedia
-                        image={category.image}
+                        image={getImagePath(category.image)}
                         title={category.title}
                       />
                       <CardContent sx={{ flexGrow: 1 }}>

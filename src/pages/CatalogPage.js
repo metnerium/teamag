@@ -28,9 +28,7 @@ import { motion } from 'framer-motion';
 import SearchIcon from '@mui/icons-material/Search';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
-// Импортируем вспомогательные функции для работы с изображениями
-import getImagePath, { getBackgroundImageUrl } from '../utils/imageHelper';
+import getImagePath from '../utils/imageHelper';
 
 // Стилизованные компоненты
 const ProductCard = styled(Card)(({ theme }) => ({
@@ -56,15 +54,15 @@ const ProductImage = styled(CardMedia)(({ theme }) => ({
 }));
 
 const CategoryBanner = styled(Box)(({ theme }) => ({
-  backgroundImage: getBackgroundImageUrl('linear-gradient(rgba(0, 40, 10, 0.7), rgba(0, 40, 10, 0.7))', '/images/catalog-banner.jpg'),
+  backgroundImage: 'linear-gradient(rgba(0, 40, 10, 0.7), rgba(0, 40, 10, 0.7)), url("/images/catalog-banner.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  color: 'white',
-  padding: theme.spacing(8, 0),
-  marginBottom: theme.spacing(6),
-  position: 'relative',
+  color: '#fff',
+  padding: theme.spacing(6, 0),
+  marginBottom: theme.spacing(4),
+  borderRadius: theme.shape.borderRadius * 2,
   [theme.breakpoints.down('md')]: {
-    padding: theme.spacing(6, 0),
+    padding: theme.spacing(4, 0),
   },
 }));
 
@@ -77,7 +75,7 @@ const productData = [
     description: 'Крупнолистовой черный чай из Кении с мягким вкусом и солодовыми нотками',
     price: 850,
     weight: '100 г',
-    image: '/images/black-tea.jpg',
+    image: 'images/black-tea.jpg',
     rating: 4.7,
     isNew: true,
     inStock: true
@@ -101,7 +99,7 @@ const productData = [
     description: 'Знаменитый китайский улун с насыщенным вкусом и минеральными нотками',
     price: 2500,
     weight: '50 г',
-    image: '/images/oolong-tea.jpg',
+    image: 'images/oolong-tea.jpg',
     rating: 5.0,
     isNew: false,
     inStock: true
@@ -113,7 +111,7 @@ const productData = [
     description: 'Копченый черный чай с характерным дымным ароматом и глубоким вкусом',
     price: 950,
     weight: '100 г',
-    image: '/images/black-tea.jpg',
+    image: 'images/black-tea.jpg',
     rating: 4.5,
     isNew: false,
     inStock: true
@@ -125,7 +123,7 @@ const productData = [
     description: 'Элитный зеленый чай с богатым вкусом и освежающим ароматом',
     price: 1800,
     weight: '50 г',
-    image: '/images/green-tea.jpg',
+    image: 'images/green-tea.jpg',
     rating: 4.8,
     isNew: true,
     inStock: true
@@ -137,7 +135,7 @@ const productData = [
     description: 'Полуферментированный чай с богатым вкусом и цветочными нотками',
     price: 1950,
     weight: '50 г',
-    image: '/images/oolong-tea.jpg',
+    image: 'images/oolong-tea.jpg',
     rating: 4.9,
     isNew: true,
     inStock: true
@@ -149,7 +147,7 @@ const productData = [
     description: 'Элитный индийский черный чай с характерным солодовым вкусом и ароматом',
     price: 1100,
     weight: '100 г',
-    image: '/images/black-tea.jpg',
+    image: 'images/black-tea.jpg',
     rating: 4.8,
     isNew: false,
     inStock: true
@@ -420,7 +418,7 @@ const CatalogPage = () => {
                   <motion.div variants={itemVariants}>
                     <ProductCard>
                       <ProductImage
-                        image={product.image}
+                        image={getImagePath(product.image)}
                         title={product.name}
                       />
                       <CardContent sx={{ flexGrow: 1 }}>
