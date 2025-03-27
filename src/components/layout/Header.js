@@ -30,6 +30,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import getImagePath from '../../utils/imageHelper';
 
 // Скрытие AppBar при прокрутке вниз
 function HideOnScroll(props) {
@@ -158,7 +159,7 @@ const Header = (props) => {
                 transition={{ duration: 0.5 }}
               >
                 <Logo component={Link} to="/" sx={{ flexGrow: { xs: 1, md: 0 }, mr: { md: 4 } }}>
-                  <img src="/images/logo.png" alt="Чайный Маг" />
+                  <img src={getImagePath('/images/logo.png')} alt="Чайный Маг" />
                   <Box className="logo-text">
                     <Typography variant="h6" component="span" sx={{ fontWeight: 700, color: 'primary.main', lineHeight: 1.2 }}>
                       Чайный Маг

@@ -26,6 +26,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import getImagePath from '../../utils/imageHelper';
 
 const FooterWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: '#212529',
@@ -92,9 +93,9 @@ const Footer = () => {
           {/* О компании */}
           <Grid item xs={12} sm={6} md={3}>
             <Box sx={{ mb: { xs: 4, md: 0 } }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <img src="/images/logo.png" alt="Чайный Маг" width={40} height={40} style={{ marginRight: 8 }} />
-                <Typography variant="h6" component="h5" sx={{ fontWeight: 700, color: 'primary.main' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                <img src={getImagePath('/images/logo.png')} alt="Чайный Маг" width={40} height={40} style={{ marginRight: 8 }} />
+                <Typography variant="h6" color="inherit" sx={{ fontWeight: 700 }}>
                   Чайный Маг
                 </Typography>
               </Box>

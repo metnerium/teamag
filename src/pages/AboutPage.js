@@ -27,15 +27,20 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
+// Импортируем вспомогательные функции для работы с изображениями
+import getImagePath, { getBackgroundImageUrl } from '../utils/imageHelper';
+
 // Стилизованные компоненты
-const AboutHero = styled(Box)(({ theme }) => ({
-  backgroundImage: 'linear-gradient(rgba(0, 40, 10, 0.8), rgba(0, 40, 10, 0.8)), url("/images/about-hero.jpg")',
+const PageHero = styled(Box)(({ theme }) => ({
+  backgroundImage: getBackgroundImageUrl('linear-gradient(rgba(0, 40, 10, 0.8), rgba(0, 40, 10, 0.8))', '/images/about-hero.jpg'),
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   color: 'white',
-  padding: theme.spacing(12, 0),
+  padding: theme.spacing(10, 0),
+  position: 'relative',
+  overflow: 'hidden',
   [theme.breakpoints.down('md')]: {
-    padding: theme.spacing(8, 0),
+    padding: theme.spacing(6, 0),
   },
 }));
 
@@ -169,7 +174,7 @@ const AboutPage = () => {
       </Container>
 
       {/* Герой-секция */}
-      <AboutHero>
+      <PageHero>
         <Container maxWidth="xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -202,7 +207,7 @@ const AboutPage = () => {
             </Typography>
           </motion.div>
         </Container>
-      </AboutHero>
+      </PageHero>
 
       {/* История компании */}
       <Box component="section" sx={{ py: 8, backgroundColor: 'background.default' }}>
@@ -210,11 +215,11 @@ const AboutPage = () => {
           <Grid container spacing={6} alignItems="center">
             <Grid item xs={12} md={6}>
               <Box 
-                component="img"
-                src="/images/about-story.jpg"
-                alt="История компании"
+                className="demo-image about"
+                data-label="История компании"
                 sx={{ 
                   width: '100%', 
+                  height: 300,
                   borderRadius: 4,
                   boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
                   mb: { xs: 4, md: 0 }
@@ -312,11 +317,11 @@ const AboutPage = () => {
             </Grid>
             <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
               <Box 
-                component="img"
-                src="/images/about-why-us.jpg"
-                alt="Преимущества работы с нами"
+                className="demo-image about"
+                data-label="Почему выбирают нас"
                 sx={{ 
                   width: '100%', 
+                  height: 300,
                   borderRadius: 4,
                   boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
                   mb: { xs: 4, md: 0 }

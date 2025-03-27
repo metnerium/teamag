@@ -23,18 +23,28 @@ import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import PriceCheckOutlinedIcon from '@mui/icons-material/PriceCheckOutlined';
 
+// Импортируем вспомогательные функции для работы с изображениями
+import getImagePath, { getBackgroundImageUrl } from '../utils/imageHelper';
+
 // Стилизованные компоненты
 const HeroSection = styled(Box)(({ theme }) => ({
-  backgroundImage: 'linear-gradient(rgba(0, 40, 10, 0.7), rgba(0, 40, 10, 0.7)), url("/images/hero-bg.jpg")',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  color: '#fff',
-  padding: theme.spacing(15, 0),
-  textAlign: 'center',
+  backgroundImage: getBackgroundImageUrl('linear-gradient(rgba(0, 40, 10, 0.7), rgba(0, 40, 10, 0.7))', '/images/hero-bg.jpg'),
+  backgroundColor: '#472f1e', // Заменяем изображение на цвет
+  color: 'white',
+  padding: theme.spacing(10, 0),
   position: 'relative',
-  overflow: 'hidden',
+  '&::after': {
+    content: '"Чайный Маг"',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    fontSize: '28px',
+    fontWeight: 'bold',
+    opacity: 0.2
+  },
   [theme.breakpoints.down('md')]: {
-    padding: theme.spacing(10, 0),
+    padding: theme.spacing(6, 0),
   },
 }));
 
@@ -150,35 +160,49 @@ const HomePage = () => {
     };
   }, []);
 
-  // Данные для карточек категорий
+  // Категории чая
   const categories = [
     { 
-      id: 1, 
-      title: 'Чёрный чай', 
-      description: 'Классические и ароматизированные купажи из разных стран', 
-      image: '/images/black-tea.jpg',
+      id: 'black', 
+      title: 'Черный чай', 
+      description: 'Классические черные чаи из разных регионов мира', 
+      image: 'black',
       path: '/catalog?category=black'
     },
     { 
-      id: 2, 
-      title: 'Зелёный чай', 
-      description: 'Свежие и легкие сорта для бодрости и здоровья', 
-      image: '/images/green-tea.jpg',
+      id: 'green', 
+      title: 'Зеленый чай', 
+      description: 'Свежие зеленые чаи из Китая и Японии', 
+      image: 'green',
       path: '/catalog?category=green'
     },
     { 
-      id: 3, 
+      id: 'oolong', 
       title: 'Улуны', 
       description: 'Полуферментированные чаи с богатым вкусовым профилем', 
-      image: '/images/oolong-tea.jpg',
+      image: 'oolong',
       path: '/catalog?category=oolong'
     },
     { 
-      id: 4, 
-      title: 'Керамика', 
-      description: 'Посуда ручной работы для чайной церемонии', 
-      image: '/images/ceramics.jpg',
-      path: '/ceramics'
+      id: 'puerh', 
+      title: 'Пуэры', 
+      description: 'Ферментированные и выдержанные чаи из провинции Юньнань', 
+      image: 'puerh',
+      path: '/catalog?category=puerh'
+    },
+    { 
+      id: 'white', 
+      title: 'Белый чай', 
+      description: 'Нежные белые чаи с минимальной обработкой', 
+      image: 'white',
+      path: '/catalog?category=white'
+    },
+    { 
+      id: 'herbal', 
+      title: 'Травяные сборы', 
+      description: 'Ароматные травяные композиции без кофеина', 
+      image: 'herbal',
+      path: '/catalog?category=herbal'
     }
   ];
 
@@ -306,7 +330,7 @@ const HomePage = () => {
                   <motion.div variants={fadeInUp}>
                     <CategoryCard component={Link} to={category.path} sx={{ textDecoration: 'none' }}>
                       <StyledCardMedia
-                        image={category.image}
+                        image={getImagePath(category.image)}
                         title={category.title}
                       />
                       <CardContent sx={{ flexGrow: 1 }}>
@@ -392,14 +416,14 @@ const HomePage = () => {
             </Grid>
             <Grid item xs={12} md={5} sx={{ display: { xs: 'none', md: 'block' } }}>
               <Box 
-                className="hidden"
-                component="img"
-                src="/images/tea-ceremony.jpg"
-                alt="Чайная церемония"
+                className="demo-image ceremony"
+                data-label="Чайная церемония"
                 sx={{ 
                   width: '100%', 
+                  height: 300,
                   borderRadius: 4,
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                  mb: { xs: 4, md: 0 }
                 }}
               />
             </Grid>
@@ -450,7 +474,7 @@ const HomePage = () => {
       <Box 
         sx={{ 
           py: { xs: 6, md: 10 }, 
-          backgroundImage: 'linear-gradient(rgba(0, 40, 10, 0.8), rgba(0, 40, 10, 0.8)), url("/images/cta-bg.jpg")',
+          backgroundImage: getBackgroundImageUrl('linear-gradient(rgba(0, 40, 10, 0.8), rgba(0, 40, 10, 0.8))', '/images/cta-bg.jpg'),
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'white',

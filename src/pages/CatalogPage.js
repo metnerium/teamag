@@ -29,6 +29,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
+// Импортируем вспомогательные функции для работы с изображениями
+import getImagePath, { getBackgroundImageUrl } from '../utils/imageHelper';
+
 // Стилизованные компоненты
 const ProductCard = styled(Card)(({ theme }) => ({
   height: '100%',
@@ -53,15 +56,15 @@ const ProductImage = styled(CardMedia)(({ theme }) => ({
 }));
 
 const CategoryBanner = styled(Box)(({ theme }) => ({
-  backgroundImage: 'linear-gradient(rgba(0, 40, 10, 0.7), rgba(0, 40, 10, 0.7)), url("/images/catalog-banner.jpg")',
+  backgroundImage: getBackgroundImageUrl('linear-gradient(rgba(0, 40, 10, 0.7), rgba(0, 40, 10, 0.7))', '/images/catalog-banner.jpg'),
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  color: '#fff',
-  padding: theme.spacing(6, 0),
-  marginBottom: theme.spacing(4),
-  borderRadius: theme.shape.borderRadius * 2,
+  color: 'white',
+  padding: theme.spacing(8, 0),
+  marginBottom: theme.spacing(6),
+  position: 'relative',
   [theme.breakpoints.down('md')]: {
-    padding: theme.spacing(4, 0),
+    padding: theme.spacing(6, 0),
   },
 }));
 

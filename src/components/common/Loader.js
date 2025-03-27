@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
+import getImagePath from '../../utils/imageHelper';
 
 const fadeIn = keyframes`
   from {
@@ -61,7 +63,9 @@ const Loader = () => {
         }}
       >
         <LogoWrapper>
-          <Logo><img src="/images/logo.png" alt="Чайный Маг" width={50} height={50}/></Logo>
+          <Logo>
+            <img src={getImagePath('/images/logo.png')} alt="Чайный Маг" width={50} height={50}/>
+          </Logo>
         </LogoWrapper>
         <CircularProgress 
           size={40} 

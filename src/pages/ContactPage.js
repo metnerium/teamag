@@ -23,15 +23,16 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import getImagePath, { getBackgroundImageUrl } from '../utils/imageHelper';
 
 // Стилизованные компоненты
 const ContactHero = styled(Box)(({ theme }) => ({
-  backgroundImage: 'linear-gradient(rgba(0, 40, 10, 0.8), rgba(0, 40, 10, 0.8)), url("/images/contact-hero.jpg")',
+  backgroundImage: getBackgroundImageUrl('linear-gradient(rgba(0, 40, 10, 0.8), rgba(0, 40, 10, 0.8))', '/images/contact-hero.jpg'),
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   color: 'white',
   padding: theme.spacing(10, 0),
-  marginBottom: theme.spacing(6),
+  position: 'relative',
   [theme.breakpoints.down('md')]: {
     padding: theme.spacing(6, 0),
   },
@@ -463,13 +464,17 @@ const ContactPage = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               <Box 
-                component="img"
-                src="/images/wholesale.jpg"
-                alt="Оптовые поставки"
+                className="demo-image wholesale"
+                data-label="Оптовые поставки"
                 sx={{ 
                   width: '100%', 
+                  height: 300,
                   borderRadius: 4,
-                  boxShadow: '0 15px 40px rgba(0,0,0,0.15)'
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                  mb: { xs: 4, md: 0 },
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
                 }}
               />
             </Grid>
