@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#038734" />
+    <meta
+      name="description"
+      content="Чайный Маг - оптовые поставки премиального чая и керамики по всей России"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Чайный Маг - чай оптом, поставки чая по всей России</title>
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Демонстрационные стили для изображений */
+      .demo-image {
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        position: relative;
+      }
+      
+      .demo-image::after {
+        content: attr(data-label);
+        position: absolute;
+      }
+      
+      /* Стили для разных типов изображений */
+      .demo-image.tea {
+        background-color: #804000;
+        color: white;
+      }
+      
+      .demo-image.ceremony {
+        background-color: #033628;
+        color: white;
+      }
+      
+      .demo-image.ceramics {
+        background-color: #524a41;
+        color: white;
+      }
+      
+      .demo-image.hero {
+        background-color: #2c4a2e;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>Для работы приложения необходимо включить JavaScript в вашем браузере.</noscript>
+    <div id="root"></div>
+  </body>
+</html> 
