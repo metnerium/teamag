@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/teamag/static/css/main.158b0ffb.css",
+    "main.js": "/teamag/static/js/main.66679eb2.js",
+    "index.html": "/teamag/index.html",
+    "main.158b0ffb.css.map": "/teamag/static/css/main.158b0ffb.css.map",
+    "main.66679eb2.js.map": "/teamag/static/js/main.66679eb2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.158b0ffb.css",
+    "static/js/main.66679eb2.js"
+  ]
+}
