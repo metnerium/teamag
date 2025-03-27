@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/teamag/static/css/main.158b0ffb.css",
-    "main.js": "/teamag/static/js/main.bd65f4fa.js",
+    "main.js": "/teamag/static/js/main.e0ee7327.js",
     "index.html": "/teamag/index.html",
     "main.158b0ffb.css.map": "/teamag/static/css/main.158b0ffb.css.map",
-    "main.bd65f4fa.js.map": "/teamag/static/js/main.bd65f4fa.js.map"
+    "main.e0ee7327.js.map": "/teamag/static/js/main.e0ee7327.js.map"
   },
   "entrypoints": [
     "static/css/main.158b0ffb.css",
-    "static/js/main.bd65f4fa.js"
+    "static/js/main.e0ee7327.js"
   ]
 }
